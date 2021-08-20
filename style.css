@@ -1,0 +1,209 @@
+:root{
+    --background: #242424;
+    --mainDull: #411f1f;
+    --mainBright: #6e2525;
+    --accentDull: #505050;
+    --accentBright: #727272;
+    --hand: 'Shadows Into Light', cursive;
+    --num: 'Roboto Mono', monospace;
+}
+
+body{
+    background-color: var(--background);
+    margin: 0;
+    font-family: 'Lexend Deca', sans-serif;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    color: #fffC;
+    overflow: auto;
+}
+
+*,*::before{
+    box-sizing: border-box;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+}
+
+main{
+    display: flex;
+    height: calc( 100% - 5rem );
+    width: 100%;
+    min-width: 70rem;
+}
+section{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.col{
+    height: 100%;
+}
+.topBar{
+    width: 100%;
+    height: 5rem;
+    padding: 1rem;
+    background-color: #181212;
+}
+.topBox{
+    height: 3rem;
+    display: flex;
+}
+.topLabel{
+    padding-right: 0.5rem;
+}
+/* .topCount{} */
+#log{    
+    font-family: var(--hand);
+    font-size: 1.5rem;    
+    width: calc( ( 100% - 20rem ) / 3 );
+    min-width: 25rem;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+#main{
+    width: calc( ( 100% - 20rem ) / 3 * 2 );
+    min-width: 25rem;
+}
+#stock{
+    width: 20rem;
+}
+#main,#stock{
+    padding: 1rem;
+}
+.log{
+    width: 100%;
+    padding: 1rem 1rem 0 1rem;
+}
+.log.old{
+    opacity: 0.5;
+}
+.heading{
+    width: 100%;
+    border-bottom: 1px solid grey;
+    margin-bottom: 1rem;
+}
+.button{
+    width: 10rem;
+    height: 3rem;
+    display: flex;
+    background-color: var(--accentBright);
+    margin: 0 1rem 1rem 0;
+    position: relative;
+    cursor: pointer;
+}
+.button.stroke{
+    border: solid white 2px;
+}
+.bar{
+    width: 100%;
+    margin-bottom: 1rem;
+    height: 3rem;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 1rem;
+    background-color: var(--mainDull);
+    position: relative;
+    cursor: pointer;
+}
+.barLabel,.barFill,.barTally,.barBox{
+    pointer-events: none;
+}
+.barBox{
+    position: absolute;
+    right: 0.5rem;
+    display: flex;
+}
+.barTally{
+    width: 3rem;
+    display: flex;
+}
+.barButton{
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--accentBright);
+    display: flex;
+    pointer-events: all;
+}
+.barButton.locked{
+    opacity: 0.5;
+}
+.barFill{
+    position: absolute;
+    left: 0;
+    background-color: var(--mainBright);
+    height: 100%;
+    transition: width 200ms linear;
+}
+.barFill.cooldown{
+    left: unset;
+    right: 0;
+}
+.unavailable{
+    opacity: 0.5;
+    cursor: default;
+}
+.locked{
+    filter: grayscale(0.75);
+    cursor: default;
+}
+.button.locked{
+    opacity: 0.35;
+}
+.barLabel{
+    z-index: 1;
+}
+.stockBox{
+    width: 100%;
+    height: calc( ( 100% - 7rem ) / 3 );
+}
+.stockRow{
+    display: flex;
+    height: 2rem;
+}
+.stockTitle,.stockAmount{
+    display: flex;    
+}
+.stockTitle{
+    justify-content: left;
+    width: 15rem;
+}
+.stockAmount{
+    width: 5rem;
+    justify-content: flex-end;
+    padding-right: 1rem;
+}
+.tooltip{
+    width: 10rem;
+    min-height: 3rem;
+    padding: 1rem;
+    position: absolute;
+    bottom: -3.25rem;
+    left: 0;
+    background-color: #999;
+    color: #222;
+    pointer-events: none;
+    display: flex;
+}
+.ttHover{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: opactiy 0.5s;
+}
+.ttHover:hover{
+    opacity: 1;
+}
+
+
+.noDisplay{
+    display: none;
+}
